@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Header from './Components/Header'
+import Home from './Components/Home'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Sports from './Components/Sports'
+import Entertainment from './Components/Entertainment'
+import Technology from './Components/Technology'
+import Health from './Components/Health'
+import Science from './Components/Science'
+import Business from './Components/Business'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <Router>
+      <Header />
 
-export default App;
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/sports">
+          <Sports />
+        </Route>
+        <Route path="/entertainment">
+          <Entertainment/>
+        </Route>
+        <Route path="/technology">
+          <Technology/>          
+        </Route>
+        <Route path="/health">
+          <Health/>          
+        </Route>
+        <Route path="/science">
+          <Science/>         
+        </Route>
+        <Route path="/business">
+          <Business/>         
+        </Route>
+      </Switch>
+
+    </Router>
+  )
+}
